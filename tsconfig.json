@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "CommonJS",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "allowJs": true
+  },
+  "files": ["src/index.ts"],
+  "include": ["src", "index.d.ts"]
+}
