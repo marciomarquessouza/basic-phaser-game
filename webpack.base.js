@@ -1,14 +1,26 @@
+const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const isProduction = process.env.NODE_ENV == "production";
-
 const stylesHandler = "style-loader";
 
-const config = {
-  entry: "./src/index.ts",
+module.exports = {
+  mode: "development",
+  devtool: "eval-source-map",
+  entry: {
+    index: {
+      import: "./src/index.ts",
+      dependOn: "shared",
+    },
+    api: {
+      import: "./src/index.ts",
+      dependOn: "shared",
+    },
+    shared: "phaser",
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].min.js",
   },
   devServer: {
     open: true,
@@ -17,6 +29,10 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html",
+    }),
+    new webpack.DefinePlugin({
+      CANVAS_RENDERER: JSON.stringify(true),
+      WEBGL_RENDERER: JSON.stringify(true),
     }),
   ],
   module: {
@@ -31,21 +47,27 @@ const config = {
         use: [stylesHandler, "css-loader"],
       },
       {
+        test: [/\.vert$/, /\.frag$/],
+        use: "raw-loader",
+      },
+      {
         test: /\.(gif|png|jpe?g|svg|xml)$/i,
-        use: "file-loader",
+        use: [
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4,
+              },
+            },
+          },
+        ],
       },
     ],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-};
-
-module.exports = () => {
-  if (isProduction) {
-    config.mode = "production";
-  } else {
-    config.mode = "development";
-  }
-  return config;
 };
