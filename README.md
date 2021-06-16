@@ -5,15 +5,13 @@ This project has been created using
 - webpack
 - phaser 3
 
-## Running Dev local version
+## Running Dev version
 
 ```
 yarn dev
 ```
 
-## Running Prod B local version
-
-to bundle your application
+## Running Prod version
 
 ```
 yarn start
