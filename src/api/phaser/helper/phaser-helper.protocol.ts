@@ -1,5 +1,3 @@
-import Phaser from "phaser";
-
 export namespace PhaserHelper {
   export type PhaserElement = {
     name: string;
