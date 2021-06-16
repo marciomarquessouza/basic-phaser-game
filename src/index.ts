@@ -1,4 +1,11 @@
-import Phaser from "phaser";
 import { config } from "./main/config";
+import { getPhaser } from "./api";
 
-export const game = new Phaser.Game(config());
+let game;
+const gameConfig = config();
+
+getPhaser(gameConfig).then((component) => {
+  game = component;
+});
+
+export { game };
