@@ -1,4 +1,3 @@
-import Phaser from "phaser";
 import { BOMB, GROUND, SKY, STAR, DUDE } from "../../constants";
 import { bombImg, platformImg, skyImg, starImg, dudeImg } from "../../assets";
 
