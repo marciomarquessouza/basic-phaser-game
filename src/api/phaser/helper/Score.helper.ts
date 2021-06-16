@@ -1,4 +1,3 @@
-import Phaser from "phaser";
 import { sceneHelper } from "./Scene.helper";
 
 class ScoreHelper {
