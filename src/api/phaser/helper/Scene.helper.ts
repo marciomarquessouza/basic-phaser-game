@@ -1,4 +1,3 @@
-import Phaser from "phaser";
 import { SceneElement } from "../../../entities";
 import { itemHelper, ItemElement } from "./Item.helper";
 import { PhaserHelper } from "./phaser-helper.protocol";
