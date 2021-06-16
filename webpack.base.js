@@ -1,26 +1,27 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const stylesHandler = "style-loader";
 
 module.exports = {
   mode: "development",
-  devtool: "eval-source-map",
+  devtool: "source-map",
   entry: {
     index: {
       import: "./src/index.ts",
-      dependOn: "shared",
+      dependOn: "phaser",
     },
-    api: {
-      import: "./src/index.ts",
-      dependOn: "shared",
-    },
-    shared: "phaser",
+    phaser: "./src/api/phaser/phaser-custom.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].min.js",
+    filename: "[name].bundle.js",
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
   },
   devServer: {
     open: true,
@@ -34,6 +35,7 @@ module.exports = {
       CANVAS_RENDERER: JSON.stringify(true),
       WEBGL_RENDERER: JSON.stringify(true),
     }),
+    new CleanWebpackPlugin(),
   ],
   module: {
     rules: [
