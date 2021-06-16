@@ -1,5 +1,4 @@
 const { merge } = require("webpack-merge");
-const path = require("path");
 const base = require("./webpack.base");
 const TerserPlugin = require("terser-webpack-plugin");
 
