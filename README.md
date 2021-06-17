@@ -1,4 +1,4 @@
-# 🚀 Basic Phaser Project using (or trying to use) SOLID and DDD principles
+# 🚀 Basic Phaser Project using (or trying to use) SOLID and Clean Code principles
 
 This project has been created using
 
