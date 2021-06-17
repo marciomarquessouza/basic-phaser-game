@@ -2,8 +2,8 @@ import { PlayerPhaser } from "../../../api";
 import { GetTouchingUseCase } from "../../../usecases";
 
 const makeGetTouching = () => {
-  const getTouchingRepository = new PlayerPhaser();
-  return new GetTouchingUseCase(getTouchingRepository);
+  const getTouchingAdapter = new PlayerPhaser();
+  return new GetTouchingUseCase(getTouchingAdapter);
 };
 
 export const getTouching = makeGetTouching();

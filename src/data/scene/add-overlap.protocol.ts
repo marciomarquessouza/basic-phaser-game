@@ -12,6 +12,6 @@ export interface AddOverlap {
   execute(overlapData: AddOverlap.Params): void;
 }
 
-export interface AddOverlapRepository {
+export interface AddOverlapAdapter {
   addOverlap(overlapData: AddOverlap.Params): void;
 }

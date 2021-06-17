@@ -1,8 +1,8 @@
 import {
-  CreatePlayerRepository,
-  GetTouchingRepository,
-  PlayAnimationRepository,
-  SetVelocityRepository,
+  CreatePlayerAdapter,
+  GetTouchingAdapter,
+  PlayAnimationAdapter,
+  SetVelocityAdapter,
   GetTouching,
   PlayAnimation,
   SetVelocity,
@@ -12,10 +12,10 @@ import { playerHelper } from "./helper";
 
 export class PlayerPhaser
   implements
-    CreatePlayerRepository,
-    SetVelocityRepository,
-    PlayAnimationRepository,
-    GetTouchingRepository
+    CreatePlayerAdapter,
+    SetVelocityAdapter,
+    PlayAnimationAdapter,
+    GetTouchingAdapter
 {
   create(player: Player) {
     playerHelper.createPlayer(player);

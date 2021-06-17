@@ -2,8 +2,8 @@ import { ScenePhaser } from "../../../api";
 import { AddColliderUseCase } from "../../../usecases";
 
 export const makeAddColliders = () => {
-  const addColliderRepository = new ScenePhaser();
-  const addColliders = new AddColliderUseCase(addColliderRepository);
+  const addColliderAdapter = new ScenePhaser();
+  const addColliders = new AddColliderUseCase(addColliderAdapter);
   return addColliders;
 };
 

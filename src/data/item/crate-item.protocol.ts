@@ -1,13 +1,9 @@
 import { Items } from "../../entities";
 
-export namespace CreateItem {
-  export type Params = Items;
-}
-
 export interface CreateItem {
-  execute(data: CreateItem.Params): void;
+  execute(data: Items): void;
 }
 
-export interface CreateItemRepository {
-  create(itemData: CreateItem.Params): void;
+export interface CreateItemAdapter {
+  create(itemData: Items, createId: () => string): void;
 }

@@ -1,9 +1,9 @@
-import { AddCollider, AddColliderRepository } from "../../data";
+import { AddCollider, AddColliderAdapter } from "../../data";
 
 export class AddColliderUseCase implements AddCollider {
-  constructor(private addColliderRepository: AddColliderRepository) {}
+  constructor(private addColliderAdapter: AddColliderAdapter) {}
 
   execute(collidersElements: AddCollider.Params): void {
-    this.addColliderRepository.add(collidersElements);
+    this.addColliderAdapter.add(collidersElements);
   }
 }

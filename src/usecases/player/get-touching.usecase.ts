@@ -1,10 +1,10 @@
-import { GetTouching, GetTouchingRepository } from "../../data";
+import { GetTouching, GetTouchingAdapter } from "../../data";
 import { Player } from "../../entities";
 
 export class GetTouchingUseCase implements GetTouching {
-  constructor(private getTouchingRepository: GetTouchingRepository) {}
+  constructor(private getTouchingAdapter: GetTouchingAdapter) {}
 
   execute(player: Player): GetTouching.Result {
-    return this.getTouchingRepository.getTouching(player);
+    return this.getTouchingAdapter.getTouching(player);
   }
 }

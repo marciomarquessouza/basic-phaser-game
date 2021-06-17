@@ -1,9 +1,9 @@
-import { CreateScore, CreateScoreRepository } from "../../data";
+import { CreateScore, CreateScoreAdapter } from "../../data";
 import { GameScore } from "../../entities";
 
 export class CreateScoreUseCase implements CreateScore {
-  constructor(private createScoreRepository: CreateScoreRepository) {}
+  constructor(private createScoreAdapter: CreateScoreAdapter) {}
   execute(data: GameScore): void {
-    this.createScoreRepository.create(data);
+    this.createScoreAdapter.create(data);
   }
 }

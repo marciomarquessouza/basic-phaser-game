@@ -2,8 +2,8 @@ import { ScenePhaser } from "../../../api";
 import { AddOverlapUseCase } from "../../../usecases";
 
 const makeAddOverlap = () => {
-  const addOverlapRepository = new ScenePhaser();
-  return new AddOverlapUseCase(addOverlapRepository);
+  const addOverlapAdapter = new ScenePhaser();
+  return new AddOverlapUseCase(addOverlapAdapter);
 };
 
 export const addOverlap = makeAddOverlap();

@@ -8,6 +8,6 @@ export interface CreatePlayer {
   execute(data: CreatePlayer.Params): void;
 }
 
-export interface CreatePlayerRepository {
+export interface CreatePlayerAdapter {
   create(playerData: CreatePlayer.Params): void;
 }

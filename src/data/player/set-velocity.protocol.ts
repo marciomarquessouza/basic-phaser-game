@@ -11,6 +11,6 @@ export interface SetVelocity {
   execute(player: SetVelocity.Params): void;
 }
 
-export interface SetVelocityRepository {
+export interface SetVelocityAdapter {
   setVelocity(playerVelocity: SetVelocity.Params): void;
 }

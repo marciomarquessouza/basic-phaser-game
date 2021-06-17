@@ -1,9 +1,9 @@
-import { CreatePlayer, CreatePlayerRepository } from "../../data";
+import { CreatePlayer, CreatePlayerAdapter } from "../../data";
 
 export class CreatePlayerUseCase implements CreatePlayer {
-  constructor(private createPlayerRepository: CreatePlayerRepository) {}
+  constructor(private createPlayerAdapter: CreatePlayerAdapter) {}
 
   execute(data: CreatePlayer.Params) {
-    return this.createPlayerRepository.create(data);
+    return this.createPlayerAdapter.create(data);
   }
 }

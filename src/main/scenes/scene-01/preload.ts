@@ -1,5 +1,11 @@
-import { BOMB, GROUND, SKY, STAR, DUDE } from "../../constants";
-import { bombImg, platformImg, skyImg, starImg, dudeImg } from "../../assets";
+import { BOMB, GROUND, SKY, STAR, DUDE } from "../../../constants";
+import {
+  bombImg,
+  platformImg,
+  skyImg,
+  starImg,
+  dudeImg,
+} from "../../../assets";
 
 export function preload() {
   const load: Phaser.Loader.LoaderPlugin = this.load;

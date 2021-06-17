@@ -8,6 +8,6 @@ export interface CreateScenario {
   execute(data: CreateScenario.Params): void;
 }
 
-export interface CreateScenarioRepository {
+export interface CreateScenarioAdapter {
   create(scenarioData: CreateScenario.Params): void;
 }

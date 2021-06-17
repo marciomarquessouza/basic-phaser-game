@@ -1,10 +1,8 @@
-import { CreateScoreRepository, UpdateScoreRepository } from "../../data";
+import { CreateScoreAdapter, UpdateScoreAdapter } from "../../data";
 import { GameScore } from "../../entities";
 import { scoreHelper } from "./helper/Score.helper";
 
-export class ScorePhaser
-  implements CreateScoreRepository, UpdateScoreRepository
-{
+export class ScorePhaser implements CreateScoreAdapter, UpdateScoreAdapter {
   create(data: GameScore): void {
     const { textFormat, text } = data;
     const { position, style } = textFormat;

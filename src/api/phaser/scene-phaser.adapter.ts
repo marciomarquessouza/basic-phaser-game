@@ -1,7 +1,7 @@
 import {
-  AddColliderRepository,
-  AddOverlapRepository,
-  LoadAssetRepository,
+  AddColliderAdapter,
+  AddOverlapAdapter,
+  LoadAssetAdapter,
   AddCollider,
   AddOverlap,
   LoadAsset,
@@ -9,7 +9,7 @@ import {
 import { ItemElement, sceneHelper } from "./helper";
 
 export class ScenePhaser
-  implements AddColliderRepository, LoadAssetRepository, AddOverlapRepository
+  implements AddColliderAdapter, LoadAssetAdapter, AddOverlapAdapter
 {
   add(colliders: AddCollider.Params): void {
     const { object1, object2 } = colliders;

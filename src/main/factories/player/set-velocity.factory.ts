@@ -2,8 +2,8 @@ import { PlayerPhaser } from "../../../api";
 import { SetVelocityUseCase } from "../../../usecases";
 
 const makeSetVelocity = () => {
-  const setVelocityRepository = new PlayerPhaser();
-  return new SetVelocityUseCase(setVelocityRepository);
+  const setVelocityAdapter = new PlayerPhaser();
+  return new SetVelocityUseCase(setVelocityAdapter);
 };
 
 export const setVelocity = makeSetVelocity();

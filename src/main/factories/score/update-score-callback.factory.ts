@@ -4,8 +4,8 @@ import { OverlapCallback } from "../../adapters";
 import { score } from "../../game-data";
 
 const makeUpdateScore = () => {
-  const updateScoreRepository = new ScorePhaser();
-  return new UpdateScoreUsecase(updateScoreRepository);
+  const updateScoreAdapter = new ScorePhaser();
+  return new UpdateScoreUsecase(updateScoreAdapter);
 };
 
 const updateScore = makeUpdateScore();

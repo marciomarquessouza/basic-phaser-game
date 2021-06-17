@@ -2,8 +2,8 @@ import { ScenePhaser } from "../../../api";
 import { LoadAssetUseCase } from "../../../usecases";
 
 const makeLoadFactory = () => {
-  const loadAssetRepository = new ScenePhaser();
-  return new LoadAssetUseCase(loadAssetRepository);
+  const loadAssetAdapter = new ScenePhaser();
+  return new LoadAssetUseCase(loadAssetAdapter);
 };
 
 export const loadAsset = makeLoadFactory();

@@ -1,4 +1,4 @@
-import { sceneHelper } from "../../api";
+import { sceneHelper } from "../../../api";
 import {
   createPlayer,
   createScenario,
@@ -9,9 +9,9 @@ import {
   disableItemCallback,
   createScore,
   updateScoreCallback,
-} from "../factories";
-import { player, scenario, stars, score } from "../game-data";
-import { overlapCallbackAdapter } from "../adapters";
+} from "../../factories";
+import { player, scenario, stars, score } from "../../game-data";
+import { overlapCallbackAdapter } from "../../adapters";
 
 export function create() {
   sceneHelper.initialize(this);

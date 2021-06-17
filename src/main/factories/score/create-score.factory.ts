@@ -2,8 +2,8 @@ import { ScorePhaser } from "../../../api";
 import { CreateScoreUseCase } from "../../../usecases";
 
 const makeCreateScore = () => {
-  const createScoreRepository = new ScorePhaser();
-  return new CreateScoreUseCase(createScoreRepository);
+  const createScoreAdapter = new ScorePhaser();
+  return new CreateScoreUseCase(createScoreAdapter);
 };
 
 export const createScore = makeCreateScore();

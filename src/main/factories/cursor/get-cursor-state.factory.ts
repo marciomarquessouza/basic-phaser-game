@@ -2,8 +2,8 @@ import { CursorPhaser } from "../../../api";
 import { GetCursorStateUseCase } from "../../../usecases";
 
 const makeGetCursorState = () => {
-  const getCursorRepository = new CursorPhaser();
-  const getCursorState = new GetCursorStateUseCase(getCursorRepository);
+  const getCursorAdapter = new CursorPhaser();
+  const getCursorState = new GetCursorStateUseCase(getCursorAdapter);
   return getCursorState;
 };
 

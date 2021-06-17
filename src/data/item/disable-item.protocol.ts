@@ -9,6 +9,6 @@ export interface DisableItem {
   execute(itemData: DisableItem.Params): void;
 }
 
-export interface DisableItemRepository {
+export interface DisableItemAdapter {
   disableItem(itemData: DisableItem.Params): void;
 }

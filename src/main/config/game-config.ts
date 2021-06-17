@@ -1,9 +1,8 @@
-import { preload } from "./preload";
-import { create } from "./create";
-import { update } from "./update";
 import { GRAVITY, HEIGHT, WIDTH } from "../../constants";
 
-export const config = (): Phaser.Types.Core.GameConfig => {
+export const config = (
+  scene: Phaser.Types.Scenes.CreateSceneFromObjectConfig
+): Phaser.Types.Core.GameConfig => {
   return {
     width: WIDTH,
     height: HEIGHT,
@@ -14,6 +13,6 @@ export const config = (): Phaser.Types.Core.GameConfig => {
         debug: false,
       },
     },
-    scene: { preload, create, update },
+    scene,
   };
 };

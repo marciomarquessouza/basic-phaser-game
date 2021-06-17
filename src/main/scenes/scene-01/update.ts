@@ -3,10 +3,14 @@ import {
   setVelocity,
   playAnimation,
   getTouching,
-} from "../factories";
-import { player } from "../game-data";
-import { ANIMATION_KEY, PLAYER_JUMP, PLAYER_VELOCITY } from "../../constants";
-import { Player, Velocity } from "../../entities";
+} from "../../factories";
+import { player } from "../../game-data";
+import {
+  ANIMATION_KEY,
+  PLAYER_JUMP,
+  PLAYER_VELOCITY,
+} from "../../../constants";
+import { Player, Velocity } from "../../../entities";
 
 const velocity = (velocity: Velocity) => {
   setVelocity.execute({ player, velocity });

@@ -2,6 +2,6 @@ export interface CreateCursor {
   execute(): void;
 }
 
-export interface CreateCursorRepository {
+export interface CreateCursorAdapter {
   create(): void;
 }

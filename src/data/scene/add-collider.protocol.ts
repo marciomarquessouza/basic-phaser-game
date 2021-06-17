@@ -11,6 +11,6 @@ export interface AddCollider {
   execute(collidersElements: AddCollider.Params): void;
 }
 
-export interface AddColliderRepository {
+export interface AddColliderAdapter {
   add(colliders: AddCollider.Params): void;
 }

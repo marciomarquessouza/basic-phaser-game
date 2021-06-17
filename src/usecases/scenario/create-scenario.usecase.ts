@@ -1,10 +1,10 @@
-import { CreateScenario, CreateScenarioRepository } from "../../data";
+import { CreateScenario, CreateScenarioAdapter } from "../../data";
 import { Scenario } from "../../entities";
 
 export class CreateScenarioUseCase implements CreateScenario {
-  constructor(private createScenarioRepository: CreateScenarioRepository) {}
+  constructor(private createScenarioAdapter: CreateScenarioAdapter) {}
 
   execute(data: Scenario): void {
-    this.createScenarioRepository.create(data);
+    this.createScenarioAdapter.create(data);
   }
 }

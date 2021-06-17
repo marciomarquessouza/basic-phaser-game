@@ -1,8 +1,8 @@
-import { LoadAsset, LoadAssetRepository } from "../../data";
+import { LoadAsset, LoadAssetAdapter } from "../../data";
 
 export class LoadAssetUseCase implements LoadAsset {
-  constructor(private loadAssetRepository: LoadAssetRepository) {}
+  constructor(private loadAssetAdapter: LoadAssetAdapter) {}
   execute(asset: LoadAsset.Params): void {
-    this.loadAssetRepository.loadAsset(asset);
+    this.loadAssetAdapter.loadAsset(asset);
   }
 }

@@ -1,7 +1,7 @@
-import { PlayAnimation, PlayAnimationRepository } from "../../data";
+import { PlayAnimation, PlayAnimationAdapter } from "../../data";
 
 export class PlayAnimationUseCase implements PlayAnimation {
-  constructor(private playAnimation: PlayAnimationRepository) {}
+  constructor(private playAnimation: PlayAnimationAdapter) {}
 
   execute(animation: PlayAnimation.Params): void {
     this.playAnimation.play(animation);

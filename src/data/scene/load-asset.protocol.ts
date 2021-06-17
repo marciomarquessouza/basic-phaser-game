@@ -13,6 +13,6 @@ export interface LoadAsset {
   execute(asset: LoadAsset.Params): void;
 }
 
-export interface LoadAssetRepository {
+export interface LoadAssetAdapter {
   loadAsset(asset: LoadAsset.Params): void;
 }

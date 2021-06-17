@@ -8,6 +8,6 @@ export interface GetCursorState {
   execute(): GetCursorState.Response;
 }
 
-export interface GetCursorRepository {
+export interface GetCursorAdapter {
   get(): GetCursorState.Response;
 }

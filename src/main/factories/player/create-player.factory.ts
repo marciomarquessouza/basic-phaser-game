@@ -2,8 +2,8 @@ import { PlayerPhaser } from "../../../api";
 import { CreatePlayerUseCase } from "../../../usecases";
 
 export const makeCreatePlayer = () => {
-  const createPlayerRepository = new PlayerPhaser();
-  const createPlayer = new CreatePlayerUseCase(createPlayerRepository);
+  const createPlayerAdapter = new PlayerPhaser();
+  const createPlayer = new CreatePlayerUseCase(createPlayerAdapter);
   return createPlayer;
 };
 

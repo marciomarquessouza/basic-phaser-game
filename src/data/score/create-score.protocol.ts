@@ -8,6 +8,6 @@ export interface CreateScore {
   execute(data: CreateScore.Params): void;
 }
 
-export interface CreateScoreRepository {
+export interface CreateScoreAdapter {
   create(data: CreateScore.Params): void;
 }

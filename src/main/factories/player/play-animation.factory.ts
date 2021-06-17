@@ -2,8 +2,8 @@ import { PlayerPhaser } from "../../../api";
 import { PlayAnimationUseCase } from "../../../usecases";
 
 const makePlayAnimation = () => {
-  const playAnimationRepository = new PlayerPhaser();
-  return new PlayAnimationUseCase(playAnimationRepository);
+  const playAnimationAdapter = new PlayerPhaser();
+  return new PlayAnimationUseCase(playAnimationAdapter);
 };
 
 export const playAnimation = makePlayAnimation();

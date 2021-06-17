@@ -1,9 +1,9 @@
-import { GetCursorRepository, GetCursorState } from "../../data";
+import { GetCursorAdapter, GetCursorState } from "../../data";
 import { Cursor } from "../../entities";
 
 export class GetCursorStateUseCase implements GetCursorState {
-  constructor(private getCursorRepository: GetCursorRepository) {}
+  constructor(private getCursorAdapter: GetCursorAdapter) {}
   execute(): Cursor {
-    return this.getCursorRepository.get();
+    return this.getCursorAdapter.get();
   }
 }

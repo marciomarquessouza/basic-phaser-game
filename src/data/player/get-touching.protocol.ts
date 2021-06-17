@@ -14,6 +14,6 @@ export interface GetTouching {
   execute(player: GetTouching.Params): GetTouching.Result;
 }
 
-export interface GetTouchingRepository {
+export interface GetTouchingAdapter {
   getTouching(player: GetTouching.Params): GetTouching.Result;
 }

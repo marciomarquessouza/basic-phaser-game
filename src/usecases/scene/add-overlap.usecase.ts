@@ -1,9 +1,9 @@
-import { AddOverlap, AddOverlapRepository } from "../../data";
+import { AddOverlap, AddOverlapAdapter } from "../../data";
 
 export class AddOverlapUseCase implements AddOverlap {
-  constructor(private addOverlapRepository: AddOverlapRepository) {}
+  constructor(private addOverlapAdapter: AddOverlapAdapter) {}
 
   execute(overlapData: AddOverlap.Params): void {
-    this.addOverlapRepository.addOverlap(overlapData);
+    this.addOverlapAdapter.addOverlap(overlapData);
   }
 }

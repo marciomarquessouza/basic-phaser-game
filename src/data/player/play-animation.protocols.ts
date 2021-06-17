@@ -13,6 +13,6 @@ export interface PlayAnimation {
   execute(animation: PlayAnimation.Params): void;
 }
 
-export interface PlayAnimationRepository {
+export interface PlayAnimationAdapter {
   play(animation: PlayAnimation.Params): void;
 }

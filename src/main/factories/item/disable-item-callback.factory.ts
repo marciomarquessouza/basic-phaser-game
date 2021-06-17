@@ -4,8 +4,8 @@ import { DisabeItemUseCase } from "../../../usecases";
 import { OverlapCallback } from "../../adapters";
 
 const makeDisableItem = () => {
-  const disableItemRepository = new ItemPhaser();
-  return new DisabeItemUseCase(disableItemRepository);
+  const disableItemAdapter = new ItemPhaser();
+  return new DisabeItemUseCase(disableItemAdapter);
 };
 
 const disableItem = makeDisableItem();

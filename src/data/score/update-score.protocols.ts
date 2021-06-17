@@ -8,6 +8,6 @@ export interface UpdateScore {
   execute(scoreData: UpdateScore.Params): void;
 }
 
-export interface UpdateScoreRepository {
+export interface UpdateScoreAdapter {
   updateScore(scoreData: UpdateScore.Params): void;
 }

@@ -1,12 +1,12 @@
-import { SetVelocity, SetVelocityRepository } from "../../data";
+import { SetVelocity, SetVelocityAdapter } from "../../data";
 
 export class SetVelocityUseCase implements SetVelocity {
-  constructor(private setVelocityRepository: SetVelocityRepository) {}
+  constructor(private setVelocityAdapter: SetVelocityAdapter) {}
 
   execute(player: SetVelocity.Params): void {
     if (!player.velocity) {
       throw new Error("Velocity data is mandatory");
     }
-    this.setVelocityRepository.setVelocity(player);
+    this.setVelocityAdapter.setVelocity(player);
   }
 }

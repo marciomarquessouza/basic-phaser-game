@@ -1,10 +1,15 @@
 import { config } from "./main/config";
 import { getPhaser } from "./api";
+import { scene01 } from "./main/scenes";
 
 let game;
-const gameConfig = config();
 
-getPhaser(gameConfig).then((component) => {
+async function getGame() {
+  const gameConfig = config(scene01);
+  return await getPhaser(gameConfig);
+}
+
+getGame().then((component) => {
   game = component;
 });
 

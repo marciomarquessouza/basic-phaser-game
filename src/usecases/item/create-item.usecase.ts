@@ -1,10 +1,13 @@
-import { CreateItem, CreateItemRepository } from "../../data";
+import { CreateIDAdapter, CreateItem, CreateItemAdapter } from "../../data";
 import { Items } from "../../entities";
 
 export class CreateItemUseCase implements CreateItem {
-  constructor(private createItemRepository: CreateItemRepository) {}
+  constructor(
+    private readonly createItemAdapter: CreateItemAdapter,
+    private readonly createIdAdapter: CreateIDAdapter
+  ) {}
 
   execute(data: Items): void {
-    this.createItemRepository.create(data);
+    this.createItemAdapter.create(data, this.createIdAdapter.create);
   }
 }

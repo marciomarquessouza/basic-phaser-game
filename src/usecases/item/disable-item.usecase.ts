@@ -1,9 +1,9 @@
-import { DisableItemRepository, DisableItem } from "../../data";
+import { DisableItemAdapter, DisableItem } from "../../data";
 
 export class DisabeItemUseCase implements DisableItem {
-  constructor(private disableItemRepository: DisableItemRepository) {}
+  constructor(private disableItemAdapter: DisableItemAdapter) {}
 
   execute(itemData: DisableItem.Params): void {
-    this.disableItemRepository.disableItem(itemData);
+    this.disableItemAdapter.disableItem(itemData);
   }
 }
