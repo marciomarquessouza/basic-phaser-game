@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./e2e-build",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "CommonJS",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "allowJs": true
+  },
+  "include": ["tests"],
+  "exclude": ["src"]
+}
