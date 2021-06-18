@@ -6,7 +6,9 @@
     "module": "CommonJS",
     "target": "ESNext",
     "esModuleInterop": true,
-    "allowJs": true
+    "allowJs": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": ["tests"],
   "exclude": ["src"]

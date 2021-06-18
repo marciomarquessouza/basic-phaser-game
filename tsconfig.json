@@ -6,7 +6,9 @@
     "module": "CommonJS",
     "target": "ESNext",
     "esModuleInterop": true,
-    "allowJs": true
+    "allowJs": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "files": ["src/index.ts"],
   "include": ["src", "index.d.ts", "node_modules/phaser/types"],
