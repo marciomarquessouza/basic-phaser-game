@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./build",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "module": "CommonJS",
@@ -8,5 +9,6 @@
     "allowJs": true
   },
   "files": ["src/index.ts"],
-  "include": ["src", "index.d.ts", "node_modules/phaser/types"]
+  "include": ["src", "index.d.ts", "node_modules/phaser/types"],
+  "exclude": ["tests"]
 }
