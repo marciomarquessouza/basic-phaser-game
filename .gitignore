@@ -119,3 +119,4 @@ dist
 
 # e2e
 tests_output
+e2e-build
