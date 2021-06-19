@@ -10,6 +10,9 @@ module.exports = merge(base, {
     maxAssetSize: 900000,
   },
   optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
     minimizer: [
       new TerserPlugin({
         terserOptions: {

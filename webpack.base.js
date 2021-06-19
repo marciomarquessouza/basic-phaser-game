@@ -18,11 +18,6 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
   },
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-  },
   devServer: {
     open: true,
     host: "localhost",
