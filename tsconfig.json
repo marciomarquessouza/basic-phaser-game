@@ -8,9 +8,9 @@
     "esModuleInterop": true,
     "allowJs": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false
   },
   "files": ["src/index.ts"],
-  "include": ["src", "index.d.ts", "node_modules/phaser/types"],
-  "exclude": ["tests"]
+  "include": ["src", "tests", "index.d.ts", "node_modules/phaser/types"]
 }
