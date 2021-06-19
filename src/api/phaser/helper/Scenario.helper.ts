@@ -1,28 +1,18 @@
 import { Scenario } from "../../../entities";
-import { PhaserHelper } from "./phaser-helper.protocol";
 import { sceneHelper } from "./Scene.helper";
+import { scenarioPhaser } from "../phaser-elements.cache";
 
-class ScenarioHelper implements PhaserHelper {
-  private scenariosPhaser: PhaserHelper.PhaserElement[] = [];
-
-  getElements(): PhaserHelper.PhaserElement[] {
-    return this.scenariosPhaser;
-  }
-
-  getElementByName(name: string): PhaserHelper.PhaserElement {
-    return this.scenariosPhaser.find((scenario) => scenario.name === name);
-  }
-
+class ScenarioHelper {
   createBackground(scenario: Scenario) {
     const { background } = scenario;
-    const { scene } = sceneHelper;
+    const scene = sceneHelper.getScene();
     const { x, y, image } = background;
     scene.add.image(x, y, image).setOrigin(0, 0);
   }
 
   createPlatforms(scenario: Scenario) {
     const { name, platforms } = scenario;
-    const { scene } = sceneHelper;
+    const scene = sceneHelper.getScene();
     const phaserPlatform = scene.physics.add.staticGroup();
     platforms.forEach((platform) => {
       if (platform.scale) {
@@ -33,7 +23,7 @@ class ScenarioHelper implements PhaserHelper {
         phaserPlatform.create(x, y, image);
       }
     });
-    this.scenariosPhaser.push({ name, element: phaserPlatform });
+    scenarioPhaser.set(name, phaserPlatform);
   }
 }
 

@@ -1,31 +1,18 @@
 import { Items } from "../../../entities";
-import { PhaserHelper } from "./phaser-helper.protocol";
 import { sceneHelper } from "./Scene.helper";
+import { itemsPhaser } from "../phaser-elements.cache";
 
-export type ItemGroupElement = Phaser.Physics.Arcade.Group;
 export type ItemElement = Phaser.Physics.Arcade.Sprite;
 
-class ItemHelper implements PhaserHelper {
-  private itemsPhaser: PhaserHelper.PhaserElement[] = [];
-
-  getElements(): PhaserHelper.PhaserElement[] {
-    return this.itemsPhaser;
-  }
-
-  getGroupByName(groupName: string): ItemGroupElement {
-    const { element } = this.itemsPhaser.find(({ name }) => name === groupName);
-    return element as ItemGroupElement;
-  }
-
+class ItemHelper {
   getItemByName(groupName: string, itemName: string): ItemElement {
-    const { element } = this.itemsPhaser.find(({ name }) => name === groupName);
-    const items = (element as ItemGroupElement).children.getArray();
+    const items = itemsPhaser.get(groupName).children.getArray();
     return items.find(({ name }) => name === itemName) as ItemElement;
   }
 
   createItems(items: Items, createId: () => string) {
     const { key, repeat, xy, bounceY, name } = items;
-    const { scene } = sceneHelper;
+    const scene = sceneHelper.getScene();
     const phaserItem = scene.physics.add.group({ key, repeat, setXY: xy });
     phaserItem.children.iterate((child) => child.setName(createId()));
     if (bounceY) {
@@ -34,7 +21,7 @@ class ItemHelper implements PhaserHelper {
         child.setBounceY(Phaser.Math.FloatBetween(start, end));
       });
     }
-    this.itemsPhaser.push({ name, element: phaserItem });
+    itemsPhaser.set(name, phaserItem);
   }
 
   disableItem(groupName: string, itemName: string) {

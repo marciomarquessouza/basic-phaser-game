@@ -1,8 +1,10 @@
 import { SceneElement } from "../../../entities";
-import { itemHelper, ItemElement } from "./Item.helper";
-import { PhaserHelper } from "./phaser-helper.protocol";
-import { playerHelper } from "./Player.helper";
-import { scenarioHelper } from "./Scenario.helper";
+import { ItemElement } from "./Item.helper";
+import {
+  playerPhaser,
+  scenarioPhaser,
+  itemsPhaser,
+} from "../phaser-elements.cache";
 
 class SceneHelper {
   private _scene: Phaser.Scene;
@@ -16,16 +18,14 @@ class SceneHelper {
     this.loader = scene.load;
   }
 
-  get scene(): Phaser.Scene {
+  getScene(): Phaser.Scene {
     return this._scene;
   }
 
-  getSceneElementByName(name: string): PhaserHelper.PhaserElement {
-    const playerElements = playerHelper.getElements();
-    const scenarioElements = scenarioHelper.getElements();
-    const itemsElements = itemHelper.getElements();
-    const elements = [...playerElements, ...scenarioElements, ...itemsElements];
-    return elements.find((element) => element.name === name);
+  getSceneElementByName(name: string) {
+    const elements = [playerPhaser, scenarioPhaser, itemsPhaser];
+    const result = elements.find((element) => element.has(name));
+    return result.get(name);
   }
 
   addColliders(
@@ -33,8 +33,8 @@ class SceneHelper {
     object2: SceneElement,
     callback?: (obj1: ItemElement, obj2: ItemElement) => void
   ) {
-    const { element: obj1 } = this.getSceneElementByName(object1.name);
-    const { element: obj2 } = this.getSceneElementByName(object2.name);
+    const obj1 = this.getSceneElementByName(object1.name);
+    const obj2 = this.getSceneElementByName(object2.name);
     this._scene.physics.add.collider(obj1, obj2, callback, null, this._scene);
   }
 
@@ -43,8 +43,8 @@ class SceneHelper {
     object2: SceneElement,
     callback: (obj1: ItemElement, obj2: ItemElement) => void
   ) {
-    const { element: obj1 } = this.getSceneElementByName(object1.name);
-    const { element: obj2 } = this.getSceneElementByName(object2.name);
+    const obj1 = this.getSceneElementByName(object1.name);
+    const obj2 = this.getSceneElementByName(object2.name);
     this._scene.physics.add.overlap(obj1, obj2, callback, null, this._scene);
   }
 

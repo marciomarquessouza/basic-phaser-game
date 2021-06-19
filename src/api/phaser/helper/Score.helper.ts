@@ -1,20 +1,20 @@
 import { sceneHelper } from "./Scene.helper";
+import { scorePhaser } from "../phaser-elements.cache";
 
 class ScoreHelper {
-  private scorePhaser: Phaser.GameObjects.Text;
-
   createScore(
     x: number,
     y: number,
     text: string,
     style?: Phaser.Types.GameObjects.Text.TextStyle
   ) {
-    const { scene } = sceneHelper;
-    this.scorePhaser = scene.add.text(x, y, text, style);
+    const scene = sceneHelper.getScene();
+    const createdScore = scene.add.text(x, y, text, style);
+    scorePhaser.set("score", createdScore);
   }
 
   updateScore(text: string) {
-    this.scorePhaser.setText(text);
+    scorePhaser.get("score").setText(text);
   }
 }
 
