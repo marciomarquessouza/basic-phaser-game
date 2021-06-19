@@ -1,8 +1,11 @@
 import { ANIMATION_KEY, ANIMATION_TYPE, DUDE } from "../../constants";
 import { Player } from "../../entities";
+import { ProxyObserverHandle } from "../adapters/proxy-observer.adapter";
+import { SceneElementObserver } from "../observers";
 
-export const player: Player = {
+const playerInializer: Player = {
   name: DUDE,
+  status: "idle",
   bounce: 0.2,
   sprite: {
     x: 100,
@@ -43,3 +46,10 @@ export const player: Player = {
     },
   ],
 };
+
+export const playerObserver = new SceneElementObserver();
+const handleObserver = new ProxyObserverHandle<Player>(
+  "player",
+  playerObserver
+);
+export const player = new Proxy(new Player(playerInializer), handleObserver);
