@@ -1,4 +1,4 @@
-import { ScenePhaser } from "../../../api";
+import { ScenePhaser } from "../../../api/phaser/adapters";
 import { AddColliderUseCase } from "../../../usecases";
 
 export const makeAddColliders = () => {
@@ -6,5 +6,3 @@ export const makeAddColliders = () => {
   const addColliders = new AddColliderUseCase(addColliderAdapter);
   return addColliders;
 };
-
-export const addColliders = makeAddColliders();

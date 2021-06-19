@@ -1,8 +1,8 @@
 import {
-  getCursorState,
-  setVelocity,
-  playAnimation,
-  getTouching,
+  makeGetCursorState,
+  makeSetVelocity,
+  makePlayAnimation,
+  makeGetTouching,
 } from "../../factories";
 import { player } from "../../game-data";
 import {
@@ -13,14 +13,18 @@ import {
 import { Player, Velocity } from "../../../entities";
 
 const playerVelocity = (velocity: Velocity) => {
+  const setVelocity = makeSetVelocity();
   setVelocity.execute({ player, velocity });
 };
 
 const touching = (player: Player) => {
+  const getTouching = makeGetTouching();
   return getTouching.execute(player);
 };
 
 export function update() {
+  const playAnimation = makePlayAnimation();
+  const getCursorState = makeGetCursorState();
   const cursor = getCursorState.execute();
 
   if (cursor.left.isDown) {

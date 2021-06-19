@@ -1,9 +1,7 @@
-import { PlayerPhaser } from "../../../api";
+import { PlayerPhaser } from "../../../api/phaser/adapters";
 import { GetTouchingUseCase } from "../../../usecases";
 
-const makeGetTouching = () => {
+export const makeGetTouching = () => {
   const getTouchingAdapter = new PlayerPhaser();
   return new GetTouchingUseCase(getTouchingAdapter);
 };
-
-export const getTouching = makeGetTouching();

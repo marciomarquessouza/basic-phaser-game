@@ -1,9 +1,7 @@
-import { PlayerPhaser } from "../../../api";
+import { PlayerPhaser } from "../../../api/phaser/adapters";
 import { SetVelocityUseCase } from "../../../usecases";
 
-const makeSetVelocity = () => {
+export const makeSetVelocity = () => {
   const setVelocityAdapter = new PlayerPhaser();
   return new SetVelocityUseCase(setVelocityAdapter);
 };
-
-export const setVelocity = makeSetVelocity();

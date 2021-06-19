@@ -1,4 +1,4 @@
-import { ScenarioPhaser } from "../../../api";
+import { ScenarioPhaser } from "../../../api/phaser/adapters";
 import { CreateScenarioUseCase } from "../../../usecases";
 
 export const makeCreateScenario = () => {
@@ -6,5 +6,3 @@ export const makeCreateScenario = () => {
   const createScene = new CreateScenarioUseCase(crateSceneAdapter);
   return createScene;
 };
-
-export const createScenario = makeCreateScenario();

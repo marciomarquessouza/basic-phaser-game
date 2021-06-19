@@ -1,4 +1,4 @@
-import { PlayerPhaser } from "../../../api";
+import { PlayerPhaser } from "../../../api/phaser/adapters";
 import { CreatePlayerUseCase } from "../../../usecases";
 
 export const makeCreatePlayer = () => {
@@ -6,5 +6,3 @@ export const makeCreatePlayer = () => {
   const createPlayer = new CreatePlayerUseCase(createPlayerAdapter);
   return createPlayer;
 };
-
-export const createPlayer = makeCreatePlayer();

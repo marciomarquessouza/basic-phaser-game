@@ -1,9 +1,7 @@
-import { ScorePhaser } from "../../../api";
+import { ScorePhaser } from "../../../api/phaser/adapters";
 import { CreateScoreUseCase } from "../../../usecases";
 
-const makeCreateScore = () => {
+export const makeCreateScore = () => {
   const createScoreAdapter = new ScorePhaser();
   return new CreateScoreUseCase(createScoreAdapter);
 };
-
-export const createScore = makeCreateScore();

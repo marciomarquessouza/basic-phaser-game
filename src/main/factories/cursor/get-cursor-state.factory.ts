@@ -1,10 +1,8 @@
-import { CursorPhaser } from "../../../api";
+import { CursorPhaser } from "../../../api/phaser/adapters";
 import { GetCursorStateUseCase } from "../../../usecases";
 
-const makeGetCursorState = () => {
+export const makeGetCursorState = () => {
   const getCursorAdapter = new CursorPhaser();
   const getCursorState = new GetCursorStateUseCase(getCursorAdapter);
   return getCursorState;
 };
-
-export const getCursorState = makeGetCursorState();

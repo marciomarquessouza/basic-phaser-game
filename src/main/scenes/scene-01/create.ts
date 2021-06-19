@@ -1,19 +1,29 @@
 import { sceneHelper } from "../../../api";
 import {
-  createPlayer,
-  createScenario,
-  createItem,
-  createCursor,
-  addColliders,
-  addOverlap,
-  disableItemCallback,
-  createScore,
-  updateScoreCallback,
+  makeCreatePlayer,
+  makeCreateScenario,
+  makeCreateItem,
+  makeCreateCursor,
+  makeAddColliders,
+  makeAddOverlap,
+  makeCreateScore,
 } from "../../factories";
 import { player, scenario, stars, score } from "../../game-data";
-import { overlapCallbackAdapter } from "../../adapters";
+import {
+  overlapCallbackAdapter,
+  disableItemCallback,
+  updateScoreCallback,
+} from "../../adapters";
 
 export function create() {
+  const createPlayer = makeCreatePlayer();
+  const createCursor = makeCreateCursor();
+  const createItem = makeCreateItem();
+  const createScenario = makeCreateScenario();
+  const addColliders = makeAddColliders();
+  const addOverlap = makeAddOverlap();
+  const createScore = makeCreateScore();
+
   sceneHelper.initialize(this);
   createScenario.execute(scenario);
   createPlayer.execute(player);
