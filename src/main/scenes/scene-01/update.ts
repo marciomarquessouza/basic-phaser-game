@@ -12,7 +12,7 @@ import {
 } from "../../../constants";
 import { Player, Velocity } from "../../../entities";
 
-const velocity = (velocity: Velocity) => {
+const playerVelocity = (velocity: Velocity) => {
   setVelocity.execute({ player, velocity });
 };
 
@@ -24,21 +24,21 @@ export function update() {
   const cursor = getCursorState.execute();
 
   if (cursor.left.isDown) {
-    velocity({ x: -PLAYER_VELOCITY });
+    playerVelocity({ x: -PLAYER_VELOCITY });
     playAnimation.execute({
       player,
       key: ANIMATION_KEY.LEFT,
       ignoreIfPlaying: true,
     });
   } else if (cursor.right.isDown) {
-    velocity({ x: PLAYER_VELOCITY });
+    playerVelocity({ x: PLAYER_VELOCITY });
     playAnimation.execute({
       player,
       key: ANIMATION_KEY.RIGHT,
       ignoreIfPlaying: true,
     });
   } else {
-    velocity({ x: 0 });
+    playerVelocity({ x: 0 });
     playAnimation.execute({
       player,
       key: ANIMATION_KEY.TURN,
@@ -46,6 +46,6 @@ export function update() {
   }
 
   if (cursor.up.isDown && touching(player).down) {
-    velocity({ y: -PLAYER_JUMP });
+    playerVelocity({ y: -PLAYER_JUMP });
   }
 }
