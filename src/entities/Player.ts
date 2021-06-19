@@ -29,11 +29,18 @@ export interface Velocity {
   y?: number;
 }
 
+type PlayerStatus = "idle" | "created";
+
 export class Player implements SceneElement {
   name: string;
+  status: PlayerStatus;
   sprite: Sprite;
   bounce: number;
   isCollideWorldBounds: boolean;
   animations: PlayerAnimation[];
   velocity?: Velocity;
+
+  constructor(props: Player) {
+    Object.assign(this, props);
+  }
 }
