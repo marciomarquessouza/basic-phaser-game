@@ -12,7 +12,7 @@ module.exports = {
       import: "./src/index.ts",
       dependOn: "phaser",
     },
-    phaser: "./src/api/phaser/phaser-custom.js",
+    phaser: "./src/api/phaser/core/phaser-custom.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
