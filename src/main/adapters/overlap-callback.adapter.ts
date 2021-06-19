@@ -1,4 +1,4 @@
-import { OverlapCallback } from "./overlap-callback.protocol";
+export type OverlapCallback = (obj1Name: string, obj2Name: string) => void;
 
 export function overlapCallbackAdapter(...callbacks: OverlapCallback[]) {
   return (obj1Name: string, obj2Name: string) => {
