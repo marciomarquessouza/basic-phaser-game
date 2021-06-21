@@ -6,7 +6,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { merge } = require("webpack-merge");
 const base = require("./webpack.base");
 const TerserPlugin = require("terser-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(base, {
   mode: "production",
@@ -16,7 +15,6 @@ module.exports = merge(base, {
     maxAssetSize: 900000,
   },
   plugins: [
-    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "index.html",
     }),
