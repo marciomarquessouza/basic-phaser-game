@@ -1,8 +1,5 @@
-const webpack = require("webpack");
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const stylesHandler = "style-loader";
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "development",
@@ -22,16 +19,6 @@ module.exports = {
     open: true,
     host: "localhost",
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "index.html",
-    }),
-    new webpack.DefinePlugin({
-      CANVAS_RENDERER: JSON.stringify(true),
-      WEBGL_RENDERER: JSON.stringify(true),
-    }),
-    new CleanWebpackPlugin(),
-  ],
   module: {
     rules: [
       {
@@ -41,7 +28,16 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [stylesHandler, "css-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          },
+        ],
       },
       {
         test: [/\.vert$/, /\.frag$/],
