@@ -11,6 +11,6 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false
   },
-  "include": ["tests"],
-  "exclude": ["src"]
+  "include": ["tests/e2e/**/*.ts"],
+  "exclude": ["tests/web, src"]
 }
