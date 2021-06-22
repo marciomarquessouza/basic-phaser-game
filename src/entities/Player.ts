@@ -29,7 +29,7 @@ export interface Velocity {
   y?: number;
 }
 
-type PlayerStatus = "idle" | "created";
+type PlayerStatus = "idle" | "created" | "error";
 
 export class Player implements SceneElement {
   name: string;
@@ -38,7 +38,15 @@ export class Player implements SceneElement {
   bounce: number;
   isCollideWorldBounds: boolean;
   animations: PlayerAnimation[];
-  velocity?: Velocity;
+  key?: ANIMATION_KEY;
+  ignoreIfPlaying?: boolean;
+  velocityX?: number;
+  velocityY?: number;
+  none?: boolean;
+  up?: boolean;
+  down?: boolean;
+  left?: boolean;
+  right?: boolean;
 
   constructor(props: Player) {
     Object.assign(this, props);
