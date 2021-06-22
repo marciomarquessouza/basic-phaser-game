@@ -1,9 +1,11 @@
+import { ANIMATION_KEY } from "../../constants";
 import { PlayAnimation, PlayAnimationAdapter } from "../../data";
+import { Player } from "../../entities";
 
 export class PlayAnimationUseCase implements PlayAnimation {
   constructor(private playAnimation: PlayAnimationAdapter) {}
 
-  execute(animation: PlayAnimation.Params): void {
-    this.playAnimation.play(animation);
+  execute(player: Player, key: ANIMATION_KEY, ignoreIfPlaying?: boolean): void {
+    this.playAnimation.play(player, key, ignoreIfPlaying);
   }
 }
