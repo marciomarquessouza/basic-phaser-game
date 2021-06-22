@@ -6,7 +6,12 @@ describe("#Test Basic Phaser Game", function () {
       .url("http://localhost:5000/")
       .waitForElementVisible("body")
       .waitForElementVisible("canvas")
-      .assert.titleContains("Basic Phaser Game")
+      .waitForElementVisible("aside")
+      .waitForElementVisible("#list-player")
+      .assert.titleContains("Test Phaser Game")
+      .assert.containsText("#row-player-status", "created")
+      .assert.containsText("#row-player-key", "turn")
+      .assert.containsText("#row-player-velocityX", "0")
       .end();
   });
 });
