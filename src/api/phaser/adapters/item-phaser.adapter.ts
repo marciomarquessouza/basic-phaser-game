@@ -7,12 +7,12 @@ import { Items } from "../../../entities";
 import { itemHelper } from "../helper";
 
 export class ItemPhaser implements CreateItemAdapter, DisableItemAdapter {
-  create(itemData: Items, createId: () => string): void {
-    itemHelper.createItems(itemData, createId);
+  create(items: Items, createId: () => string): void {
+    itemHelper.createItems(items, createId);
   }
 
-  disableItem(itemData: DisableItem.Params): void {
-    const { groupName, itemName } = itemData;
+  disableItem(items: DisableItem.Params): void {
+    const { groupName, itemName } = items;
     itemHelper.disableItem(groupName, itemName);
   }
 }
