@@ -1,7 +1,7 @@
 import { NightwatchBrowser } from "nightwatch";
 
 describe("#Test Basic Phaser Game", function () {
-  it("check if body and canvas are working properly", function (browser: unknown) {
+  it("check if initial game features are working properly", function (browser: unknown) {
     (browser as NightwatchBrowser)
       .url("http://localhost:5000/")
       .waitForElementVisible("body")
