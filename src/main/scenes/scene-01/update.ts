@@ -29,24 +29,13 @@ export function update() {
 
   if (cursor.left.isDown) {
     playerVelocity({ x: -PLAYER_VELOCITY });
-    playAnimation.execute({
-      player,
-      key: ANIMATION_KEY.LEFT,
-      ignoreIfPlaying: true,
-    });
+    playAnimation.execute(player, ANIMATION_KEY.LEFT, true);
   } else if (cursor.right.isDown) {
     playerVelocity({ x: PLAYER_VELOCITY });
-    playAnimation.execute({
-      player,
-      key: ANIMATION_KEY.RIGHT,
-      ignoreIfPlaying: true,
-    });
+    playAnimation.execute(player, ANIMATION_KEY.RIGHT, true);
   } else {
     playerVelocity({ x: 0 });
-    playAnimation.execute({
-      player,
-      key: ANIMATION_KEY.TURN,
-    });
+    playAnimation.execute(player, ANIMATION_KEY.TURN);
   }
 
   if (cursor.up.isDown && touching(player).down) {
