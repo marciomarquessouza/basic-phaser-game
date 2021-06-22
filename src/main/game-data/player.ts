@@ -3,7 +3,7 @@ import { Player } from "../../entities";
 import { ProxyObserverHandle } from "../adapters/proxy-observer.adapter";
 import { SceneElementObserver } from "../observers";
 
-const playerInializer: Player = {
+const playerInitializer: Player = {
   name: DUDE,
   status: "idle",
   bounce: 0.2,
@@ -52,4 +52,4 @@ const handleObserver = new ProxyObserverHandle<Player>(
   "player",
   playerObserver
 );
-export const player = new Proxy(new Player(playerInializer), handleObserver);
+export const player = new Proxy(new Player(playerInitializer), handleObserver);
