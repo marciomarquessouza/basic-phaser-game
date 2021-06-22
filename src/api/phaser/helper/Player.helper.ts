@@ -36,15 +36,19 @@ class PlayerHelper {
     });
   }
 
-  setVelocityX(name: string, x: number): void {
+  async setVelocityX(name: string, x: number): Promise<void> {
     playerPhaser.get(name).setVelocityX(x);
   }
 
-  setVelocityY(name: string, y: number): void {
+  async setVelocityY(name: string, y: number): Promise<void> {
     playerPhaser.get(name).setVelocityY(y);
   }
 
-  playAnimation(name: string, key: ANIMATION_KEY, ignoreIfPlaying?: boolean) {
+  async playAnimation(
+    name: string,
+    key: ANIMATION_KEY,
+    ignoreIfPlaying?: boolean
+  ): Promise<void> {
     playerPhaser.get(name).anims.play(key, ignoreIfPlaying);
   }
 
